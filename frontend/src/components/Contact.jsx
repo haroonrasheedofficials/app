@@ -31,7 +31,6 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Mock form submission
     console.log('Form submitted:', formData);
     toast({
       title: "Message Sent!",
@@ -45,12 +44,12 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4" style={{ color: '#483478' }}>
             Get In Touch
           </h2>
           <div
             className="w-20 h-1 mx-auto mb-6"
-            style={{ backgroundColor: '#D4AF37' }}
+            style={{ backgroundColor: '#fcae44' }}
           />
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Have a project in mind? Let's collaborate and create something amazing together.
@@ -59,11 +58,11 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <Card className="border-2 border-gray-200 shadow-lg">
+          <Card className="border-2 shadow-lg" style={{ borderColor: '#e5e7eb' }}>
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-black mb-2">
+                  <label htmlFor="name" className="block text-sm font-semibold mb-2" style={{ color: '#483478' }}>
                     Name
                   </label>
                   <Input
@@ -73,13 +72,18 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full border-2 border-gray-300 focus:border-black transition-colors"
+                    className="w-full border-2 transition-colors"
                     placeholder="Your name"
+                    style={{
+                      borderColor: '#e5e7eb'
+                    }}
+                    onFocus={(e) => e.target.style.borderColor = '#8950cc'}
+                    onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-black mb-2">
+                  <label htmlFor="email" className="block text-sm font-semibold mb-2" style={{ color: '#483478' }}>
                     Email
                   </label>
                   <Input
@@ -89,13 +93,18 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full border-2 border-gray-300 focus:border-black transition-colors"
+                    className="w-full border-2 transition-colors"
                     placeholder="your@email.com"
+                    style={{
+                      borderColor: '#e5e7eb'
+                    }}
+                    onFocus={(e) => e.target.style.borderColor = '#8950cc'}
+                    onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-black mb-2">
+                  <label htmlFor="message" className="block text-sm font-semibold mb-2" style={{ color: '#483478' }}>
                     Message
                   </label>
                   <Textarea
@@ -105,14 +114,22 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
-                    className="w-full border-2 border-gray-300 focus:border-black transition-colors resize-none"
+                    className="w-full border-2 transition-colors resize-none"
                     placeholder="Tell me about your project..."
+                    style={{
+                      borderColor: '#e5e7eb'
+                    }}
+                    onFocus={(e) => e.target.style.borderColor = '#8950cc'}
+                    onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
                   />
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full bg-black text-white hover:bg-gray-800 transition-colors py-6 text-base font-semibold"
+                  className="w-full text-white hover:bg-opacity-90 transition-colors py-6 text-base font-semibold"
+                  style={{
+                    backgroundColor: '#8950cc'
+                  }}
                 >
                   Send Message
                 </Button>
@@ -123,7 +140,7 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-black mb-4">Let's Connect</h3>
+              <h3 className="text-2xl font-bold mb-4" style={{ color: '#483478' }}>Let's Connect</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
                 I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!
               </p>
@@ -131,13 +148,13 @@ const Contact = () => {
                 <div className="flex items-center space-x-3">
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: '#FFF9E6', color: '#D4AF37' }}
+                    style={{ backgroundColor: 'rgba(252, 174, 68, 0.15)', color: '#fcae44' }}
                   >
                     <Icons.Mail size={20} />
                   </div>
                   <a
                     href={`mailto:${contact.email}`}
-                    className="text-gray-700 hover:text-black transition-colors"
+                    className="text-gray-700 hover:text-opacity-70 transition-colors"
                   >
                     {contact.email}
                   </a>
@@ -147,7 +164,7 @@ const Contact = () => {
 
             {/* Social Links */}
             <div>
-              <h3 className="text-xl font-bold text-black mb-4">Follow Me</h3>
+              <h3 className="text-xl font-bold mb-4" style={{ color: '#483478' }}>Follow Me</h3>
               <div className="flex space-x-4">
                 {contact.social.map((social, index) => (
                   <a
@@ -155,7 +172,19 @@ const Contact = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center text-black hover:bg-black hover:text-white transition-all duration-300"
+                    className="w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300"
+                    style={{
+                      borderColor: '#8950cc',
+                      color: '#8950cc'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = '#8950cc';
+                      e.currentTarget.style.color = '#fff';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                      e.currentTarget.style.color = '#8950cc';
+                    }}
                     aria-label={social.platform}
                   >
                     {getIcon(social.icon)}
@@ -166,15 +195,21 @@ const Contact = () => {
 
             {/* CTA Card */}
             <Card
-              className="border-2 border-black p-8"
-              style={{ backgroundColor: '#FFF9E6' }}
+              className="border-2 p-8"
+              style={{
+                background: 'linear-gradient(135deg, rgba(72, 52, 120, 0.05) 0%, rgba(252, 174, 68, 0.1) 100%)',
+                borderColor: '#fcae44'
+              }}
             >
-              <h3 className="text-2xl font-bold text-black mb-2">Ready to Start?</h3>
+              <h3 className="text-2xl font-bold mb-2" style={{ color: '#483478' }}>Ready to Start?</h3>
               <p className="text-gray-700 mb-4">
                 Let's discuss how I can help bring your vision to life with exceptional design.
               </p>
               <Button
-                className="w-full bg-black text-white hover:bg-gray-800 transition-colors"
+                className="w-full text-white hover:bg-opacity-90 transition-colors"
+                style={{
+                  backgroundColor: '#e061a8'
+                }}
                 onClick={() => document.getElementById('name').focus()}
               >
                 Start a Project

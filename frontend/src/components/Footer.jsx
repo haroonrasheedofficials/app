@@ -12,15 +12,17 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white py-12">
+    <footer className="text-white py-12" style={{
+      background: 'linear-gradient(135deg, #483478 0%, #8950cc 100%)'
+    }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold mb-3">
-              haroon<span style={{ color: '#D4AF37' }}>mughal</span>
+              haroon<span style={{ color: '#fcae44' }}>mughal</span>
             </h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-white text-opacity-80 text-sm">
               Graphic Designer & Visual Storyteller based in Pakistan.
             </p>
           </div>
@@ -38,7 +40,7 @@ const Footer = () => {
                         element.scrollIntoView({ behavior: 'smooth' });
                       }
                     }}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-white text-opacity-80 hover:text-opacity-100 transition-colors"
                   >
                     {item}
                   </button>
@@ -57,7 +59,18 @@ const Footer = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-all"
+                  className="w-10 h-10 rounded-full border flex items-center justify-center text-white hover:bg-white transition-all"
+                  style={{
+                    borderColor: 'rgba(255, 255, 255, 0.3)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#fcae44';
+                    e.currentTarget.style.borderColor = '#fcae44';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                  }}
                   aria-label={social.platform}
                 >
                   {getIcon(social.icon)}
@@ -66,7 +79,7 @@ const Footer = () => {
             </div>
             <a
               href={`mailto:${contact.email}`}
-              className="text-sm text-gray-400 hover:text-white transition-colors"
+              className="text-sm text-white text-opacity-80 hover:text-opacity-100 transition-colors"
             >
               {contact.email}
             </a>
@@ -75,8 +88,8 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div
-          className="pt-8 border-t text-center text-sm text-gray-400"
-          style={{ borderColor: '#333' }}
+          className="pt-8 border-t text-center text-sm text-white text-opacity-70"
+          style={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
         >
           <p>
             © {currentYear} Haroon Mughal. All rights reserved.
