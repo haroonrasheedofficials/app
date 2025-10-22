@@ -19,12 +19,12 @@ const Portfolio = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4" style={{ color: '#483478' }}>
             My Work
           </h2>
           <div
             className="w-20 h-1 mx-auto mb-6"
-            style={{ backgroundColor: '#D4AF37' }}
+            style={{ backgroundColor: '#fcae44' }}
           />
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             A collection of my recent projects showcasing creativity, strategy, and design excellence.
@@ -37,13 +37,10 @@ const Portfolio = () => {
             <button
               key={category}
               onClick={() => setFilter(category)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                filter === category
-                  ? 'text-white shadow-md'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+              className="px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 text-white"
               style={{
-                backgroundColor: filter === category ? '#000' : undefined
+                backgroundColor: filter === category ? '#8950cc' : '#e5e7eb',
+                color: filter === category ? '#fff' : '#4b5563'
               }}
             >
               {category}
@@ -64,15 +61,21 @@ const Portfolio = () => {
                   alt={project.title}
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 transition-all duration-300 flex items-center justify-center" style={{
+                  background: 'linear-gradient(135deg, rgba(72, 52, 120, 0) 0%, rgba(137, 80, 204, 0.9) 100%)',
+                  opacity: 0
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.opacity = 1}
+                onMouseLeave={(e) => e.currentTarget.style.opacity = 0}
+                >
                   <ExternalLink
-                    className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="text-white"
                     size={32}
                   />
                 </div>
               </div>
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-black mb-2 group-hover:text-opacity-70 transition-colors">
+                <h3 className="text-xl font-bold mb-2 transition-colors" style={{ color: '#483478' }}>
                   {project.title}
                 </h3>
                 <p className="text-gray-600 mb-4 text-sm leading-relaxed">
@@ -85,9 +88,9 @@ const Portfolio = () => {
                       variant="secondary"
                       className="text-xs"
                       style={{
-                        backgroundColor: '#FFF9E6',
-                        color: '#D4AF37',
-                        border: '1px solid #D4AF37'
+                        backgroundColor: 'rgba(252, 174, 68, 0.15)',
+                        color: '#fcae44',
+                        border: '1px solid rgba(252, 174, 68, 0.3)'
                       }}
                     >
                       {tag}

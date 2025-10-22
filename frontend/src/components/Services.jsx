@@ -12,16 +12,16 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-24 bg-gray-50">
+    <section id="services" className="py-24" style={{ backgroundColor: '#f8f9fa' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4" style={{ color: '#483478' }}>
             Services
           </h2>
           <div
             className="w-20 h-1 mx-auto mb-6"
-            style={{ backgroundColor: '#D4AF37' }}
+            style={{ backgroundColor: '#fcae44' }}
           />
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Comprehensive design solutions tailored to bring your vision to life.
@@ -33,19 +33,28 @@ const Services = () => {
           {services.map((service) => (
             <Card
               key={service.id}
-              className="group border-2 border-gray-200 hover:border-black transition-all duration-300 hover:shadow-xl cursor-pointer"
+              className="group border-2 hover:shadow-xl transition-all duration-300 cursor-pointer"
+              style={{
+                borderColor: '#e5e7eb'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#8950cc';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = '#e5e7eb';
+              }}
             >
               <CardHeader>
                 <div
                   className="w-16 h-16 rounded-lg flex items-center justify-center mb-4 transition-colors duration-300"
                   style={{
-                    backgroundColor: '#FFF9E6',
-                    color: '#D4AF37'
+                    backgroundColor: 'rgba(252, 174, 68, 0.15)',
+                    color: '#fcae44'
                   }}
                 >
                   {getIcon(service.icon)}
                 </div>
-                <CardTitle className="text-2xl font-bold text-black group-hover:text-opacity-70 transition-colors">
+                <CardTitle className="text-2xl font-bold transition-colors" style={{ color: '#483478' }}>
                   {service.title}
                 </CardTitle>
               </CardHeader>
